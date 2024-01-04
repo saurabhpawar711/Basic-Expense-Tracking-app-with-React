@@ -1,11 +1,17 @@
 import React from 'react'
+import './ExpenseItem.css'
 
-export function ExpenseItem() {
-  return (
-    <div>
-        <p>Food Rs 10</p>
-        <p>Petrol Rs 100</p>
-        <p>Movie Rs 200</p>
-    </div>
-  )
+export function ExpenseItem(props) {
+    const expenseDate = new Date();
+    return (
+        <div className='expense-item'>
+            <div>{expenseDate.toString()}</div>
+            <div></div>
+            <div className='expense-item__description'>
+                <h2>{props.title}</h2>
+                <div className='expense-item__price'>${props.amount}</div>
+                <div className='expense-item__location'>{props.location}</div>
+            </div>
+        </div>
+    )
 }
