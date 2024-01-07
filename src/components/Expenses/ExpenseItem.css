@@ -17,3 +17,33 @@
     border-radius: 10px;
     padding: 10px;
 }
+
+.updateExpenseBtn {
+    margin-left: 5px;
+    padding: 5px;
+    background: rgb(27, 182, 6);
+    color: #fff;
+    font-weight: 900;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.updateExpenseTitleBtn {
+    margin-left: 5px;
+    padding: 5px;
+    background: rgb(27, 182, 6);
+    color: #fff;
+    font-weight: 900;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.updateExpenseTitleBtn:hover {
+    background: rgb(24, 165, 5);
+}
+
+.updateExpenseBtn:hover {
+    background: rgb(24, 165, 5);
+}
