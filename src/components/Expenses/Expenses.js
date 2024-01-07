@@ -8,17 +8,14 @@ const Expenses = () => {
     {
       title: "Car Insurance",
       amount: 299,
-      location: "Policybazar",
     },
     {
       title: "TV Set",
       amount: 234.35,
-      location: "Croma",
     },
     {
       title: "Petrol",
       amount: 56.45,
-      location: "Indian Oil",
     },
   ];
   return (
@@ -27,7 +24,6 @@ const Expenses = () => {
         <ExpenseItem
           title={expense.title}
           amount={expense.amount}
-          location={expense.location}
         />
       ))}
     </Card>

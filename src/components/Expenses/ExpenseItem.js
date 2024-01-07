@@ -26,7 +26,6 @@ const ExpenseItem = (props) => {
       <ExpenseDetails
         title={title}
         amount={amount}
-        location={props.location}
       />
       <button className="updateExpenseBtn" onClick={updateExpense}>
         Update Amount

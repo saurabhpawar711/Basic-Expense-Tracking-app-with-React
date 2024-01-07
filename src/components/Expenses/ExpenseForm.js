@@ -15,8 +15,20 @@ function ExpenseForm() {
   const changeDate = (e) => {
     setDate(e.target.value);
   };
+  const addExpense = () => {
+    const expenseData = {
+      title,
+      amount,
+      date,
+    };
+
+    setTitle("");
+    setAmount("");
+    setDate("");
+  };
+
   return (
-    <form className="form">
+    <form className="form" onSubmit={addExpense}>
       <input
         type="text"
         value={title}
@@ -38,7 +50,15 @@ function ExpenseForm() {
         className="expenseInput"
         onChange={(e) => changeDate(e)}
       />
-      <button className="expenseBtn">Add Expense</button>
+      <button
+        className="expenseBtn"
+        onClick={(e) => {
+          e.preventDefault();
+          addExpense();
+        }}
+      >
+        Add Expense
+      </button>
     </form>
   );
 }
