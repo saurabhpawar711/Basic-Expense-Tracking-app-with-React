@@ -1,0 +1,56 @@
+.form {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #2b2a2a;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.expenseInput {
+    width: 50%;
+    margin: 0 5px;
+    border-radius: 5px;
+    padding: 10px;
+    border: none;
+    font-weight: 500;
+}
+
+.expenseInput:focus {
+    outline: none;
+}
+
+.expenseBtn {
+    margin-left: 5px;
+    padding: 10px 20px;
+    width: 300px;
+    background: rgb(52, 83, 224);
+    color: #fff;
+    font-weight: 900;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.expenseBtn:hover {
+    background: rgb(42, 70, 192);
+}
+
+@media screen and (max-width: 546px) {
+    .form {
+        flex-wrap: wrap;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .expenseInput {
+        width: 100%;
+        margin: 5px;
+    }
+    .expenseBtn {
+        width: 100%;
+        margin: 5px;
+    }
+}
