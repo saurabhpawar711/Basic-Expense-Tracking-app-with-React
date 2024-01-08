@@ -1,13 +1,19 @@
+import React, { useState } from "react";
 import Expenses from "./components/Expenses/Expenses";
-import ExpenseForm from "./components/Expenses/ExpenseForm";
+import NewExpense from "./components/Expenses/NewExpense";
 import "./index.css";
 
 const App = () => {
+  const [expenses, setExpenses] = useState([]);
+  const addNewExpense = (expense) => {
+    setExpenses((prevExpense) => [...prevExpense, expense]);
+  };
+
   return (
     <div>
       <h2>Expense Items</h2>
-      <ExpenseForm />
-      <Expenses />
+      <NewExpense onAddExpense={addNewExpense} />
+      <Expenses expenses={expenses} />
     </div>
   );
 };

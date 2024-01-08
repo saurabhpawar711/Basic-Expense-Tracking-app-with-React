@@ -15,11 +15,12 @@ const ExpenseItem = (props) => {
     setTitle('Updated Title!!');
   }
 
-  const day = new Date().toLocaleString("en-US", {
+  const day = new Date(props.date).toLocaleString("en-US", {
     day: "2-digit",
     month: "long",
     year: "numeric",
   });
+
   return (
     <Card className="expense-item">
       <div className="expenseDate">{day}</div>
