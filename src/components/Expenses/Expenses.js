@@ -44,17 +44,27 @@ const Expenses = (props) => {
     return yearlyExpenses;
   };
 
+  const filteredData = getYearlyData(year);
+  const expenseElements = filteredData.map((expense) => (
+    <ExpenseItem
+      key={expense.id}
+      title={expense.title}
+      amount={expense.amount}
+      date={expense.date}
+    />
+  ));
+
   return (
     <Card className="expenses">
       <ExpenseFilter onYearChange={getYear} />
-      {getYearlyData(year).map((expense) => (
-        <ExpenseItem
-          key={expense.id}
-          title={expense.title}
-          amount={expense.amount}
-          date={expense.date}
-        />
-      ))}
+      {filteredData.length === 0 && <h2>No Expenses!!!</h2>}
+      {filteredData.length === 1 && (
+        <>
+          {expenseElements}
+          <h2>Only single Expense here. Please add more...</h2>
+        </>
+      )}
+      {filteredData.length > 1 && expenseElements}
     </Card>
   );
 };
