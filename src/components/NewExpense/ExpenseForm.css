@@ -34,6 +34,34 @@
     cursor: pointer;
 }
 
+.cancel-button {
+    margin-left: 5px;
+    padding: 10px 20px;
+    width: 300px;
+    background: rgb(231, 5, 5);
+    color: #fff;
+    font-weight: 900;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cancel-button:hover {
+    background: rgb(199, 4, 4);
+}
+
+.new-expense-button {
+    background: #40005d;
+    text-align: center;
+    color: #fff;
+    font-weight: 800;
+    border: #fff solid 1px;
+    border-radius: 10px;
+    padding: 10px 20px;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
 .expenseBtn:hover {
     background: rgb(42, 70, 192);
 }
@@ -50,6 +78,10 @@
         margin: 5px;
     }
     .expenseBtn {
+        width: 100%;
+        margin: 5px;
+    }
+    .cancel-button {
         width: 100%;
         margin: 5px;
     }

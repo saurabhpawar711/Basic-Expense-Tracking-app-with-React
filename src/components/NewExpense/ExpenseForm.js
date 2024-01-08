@@ -29,40 +29,66 @@ const ExpenseForm = (props) => {
     setDate("");
   };
 
+  const changeState = () => {
+    setButton((prevvalue) => !prevvalue);
+  };
+
+  const [button, setButton] = useState(true);
+
   return (
     <form className="form" onSubmit={addExpense}>
-      <input
-        type="text"
-        value={title}
-        placeholder="Expense Title"
-        className="expenseInput"
-        onChange={(e) => changeTitle(e)}
-      />
-      <input
-        type="number"
-        value={amount}
-        placeholder="Expense Amount"
-        className="expenseInput"
-        onChange={(e) => changeAmount(e)}
-      />
-      <input
-        type="date"
-        value={date}
-        placeholder="Expense Date"
-        className="expenseInput"
-        onChange={(e) => changeDate(e)}
-      />
-      <button
-        className="expenseBtn"
-        onClick={(e) => {
-          e.preventDefault();
-          addExpense();
-        }}
-      >
-        Add Expense
-      </button>
+      {button ? (
+        <button className="new-expense-button" onClick={changeState}>
+          Add New Expense
+        </button>
+      ) : (
+        <>
+          <input
+            type="text"
+            value={title}
+            placeholder="Expense Title"
+            className="expenseInput"
+            required
+            onChange={(e) => changeTitle(e)}
+          />
+          <input
+            type="number"
+            value={amount}
+            placeholder="Expense Amount"
+            className="expenseInput"
+            required
+            onChange={(e) => changeAmount(e)}
+          />
+          <input
+            type="date"
+            value={date}
+            placeholder="Expense Date"
+            className="expenseInput"
+            required
+            onChange={(e) => changeDate(e)}
+          />
+          <button
+            className="expenseBtn"
+            type="submit"
+            onClick={(e) => {
+              e.preventDefault();
+              if (document.querySelector(".form").checkValidity()) {
+                addExpense();
+                changeState();
+              } else {
+                alert("Please fill in all required fields.");
+              }
+            }}
+          >
+            Add Expense
+          </button>
+          <button className="cancel-button" type="submit" onClick={changeState}>
+            Cancel
+          </button>
+        </>
+      )}
     </form>
   );
-}
+};
 
 export default ExpenseForm;
