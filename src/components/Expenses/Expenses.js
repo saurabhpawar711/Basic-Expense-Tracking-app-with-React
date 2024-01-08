@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import ExpenseItem from "./ExpenseItem";
 import ExpenseFilter from "./ExpenseFilter";
 import Card from "../UI/Card";
 import "./Expenses.css";
 
 const Expenses = (props) => {
+  const [year, setYear] = useState("All");
   let expenses = [
     {
       title: "Car Insurance",
@@ -28,10 +29,25 @@ const Expenses = (props) => {
 
   expenses = [...expenses, ...props.expenses];
 
+  const getYear = (year) => {
+    setYear(year);
+  };
+
+  const getYearlyData = (year) => {
+    if (year === "All") {
+      return expenses;
+    }
+    const regexPattern = new RegExp(`^${year}-\\d{2}-\\d{2}$`);
+    const yearlyExpenses = expenses.filter((expense) =>
+      regexPattern.test(expense.date)
+    );
+    return yearlyExpenses;
+  };
+
   return (
     <Card className="expenses">
-      <ExpenseFilter />
-      {expenses.map((expense) => (
+      <ExpenseFilter onYearChange={getYear} />
+      {getYearlyData(year).map((expense) => (
         <ExpenseItem
           key={expense.id}
           title={expense.title}

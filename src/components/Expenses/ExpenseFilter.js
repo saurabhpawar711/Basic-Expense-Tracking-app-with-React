@@ -1,9 +1,9 @@
 import React from "react";
 import "./ExpenseFilter.css";
 
-const ExpenseFilter = () => {
+const ExpenseFilter = (props) => {
   const changeYear = (e) => {
-    console.log(e.target.value);
+    props.onYearChange(e.target.value);
   };
   return (
     <div className="filteryear">
@@ -14,6 +14,7 @@ const ExpenseFilter = () => {
           changeYear(e);
         }}
       >
+        <option value="All">All</option>
         <option value="2024">2024</option>
         <option value="2023">2023</option>
         <option value="2022">2022</option>
