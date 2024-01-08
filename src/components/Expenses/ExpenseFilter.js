@@ -7,7 +7,7 @@ const ExpenseFilter = () => {
   };
   return (
     <div className="filteryear">
-      <label className="filter-label">Filter by year</label>
+      <label className="filter-label">Filter by Year</label>
       <select
         className="yearlist"
         onChange={(e) => {
