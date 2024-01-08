@@ -1,0 +1,15 @@
+.filter-label {
+    color: #fff;
+    font-weight: 800;
+    margin-right: 5px;
+}
+
+.yearlist {
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: none;
+}
+
+.yearlist:focus {
+    outline: none;
+}

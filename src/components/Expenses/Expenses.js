@@ -1,5 +1,6 @@
 import React from "react";
 import ExpenseItem from "./ExpenseItem";
+import ExpenseFilter from "./ExpenseFilter";
 import Card from "../UI/Card";
 import "./Expenses.css";
 
@@ -29,6 +30,7 @@ const Expenses = (props) => {
 
   return (
     <Card className="expenses">
+      <ExpenseFilter />
       {expenses.map((expense) => (
         <ExpenseItem
           title={expense.title}
