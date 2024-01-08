@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import ExpenseItem from "./ExpenseItem";
 import ExpenseFilter from "./ExpenseFilter";
+import ExpenseChart from "./ExpenseChart";
 import Card from "../UI/Card";
 import "./Expenses.css";
 
 const Expenses = (props) => {
-  const [year, setYear] = useState("All");
+  const [year, setYear] = useState("2024");
   let expenses = [
     {
       title: "Car Insurance",
@@ -34,9 +35,6 @@ const Expenses = (props) => {
   };
 
   const getYearlyData = (year) => {
-    if (year === "All") {
-      return expenses;
-    }
     const regexPattern = new RegExp(`^${year}-\\d{2}-\\d{2}$`);
     const yearlyExpenses = expenses.filter((expense) =>
       regexPattern.test(expense.date)
@@ -45,26 +43,24 @@ const Expenses = (props) => {
   };
 
   const filteredData = getYearlyData(year);
-  const expenseElements = filteredData.map((expense) => (
-    <ExpenseItem
-      key={expense.id}
-      title={expense.title}
-      amount={expense.amount}
-      date={expense.date}
-    />
-  ));
+  let expenseElements = <h2>No Expenses!!!</h2>
+  if(filteredData.length > 0) {
+    expenseElements = filteredData.map((expense) => (
+      <ExpenseItem
+        key={expense.id}
+        title={expense.title}
+        amount={expense.amount}
+        date={expense.date}
+      />
+    ));
+  }
 
   return (
     <Card className="expenses">
       <ExpenseFilter onYearChange={getYear} />
-      {filteredData.length === 0 && <h2>No Expenses!!!</h2>}
-      {filteredData.length === 1 && (
-        <>
-          {expenseElements}
-          <h2>Only single Expense here. Please add more...</h2>
-        </>
-      )}
-      {filteredData.length > 1 && expenseElements}
+      <ExpenseChart expenses={filteredData}/>
+      {filteredData.length === 0 && expenseElements}
+      {filteredData.length > 0 && expenseElements}
     </Card>
   );
 };

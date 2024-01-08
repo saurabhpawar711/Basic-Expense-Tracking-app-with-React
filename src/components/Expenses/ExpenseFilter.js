@@ -14,7 +14,6 @@ const ExpenseFilter = (props) => {
           changeYear(e);
         }}
       >
-        <option value="All">All</option>
         <option value="2024">2024</option>
         <option value="2023">2023</option>
         <option value="2022">2022</option>
